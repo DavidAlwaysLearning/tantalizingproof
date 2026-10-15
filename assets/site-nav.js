@@ -48,6 +48,96 @@
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
+  /* Newest first. Titles, years, and domains come from each album repo. */
+  var albums = [
+    { href: "https://lackadaisicalperfection.com/", title: "Lackadaisical Perfection", file: "lackadaisical-perfection" },
+    { href: "https://pianoreveries.com/", title: "Piano Reveries and Phantasies", file: "piano-reveries" },
+    { href: "https://smittenwiththemuses.com/", title: "Smitten with the Muses", file: "smitten-with-the-muses" },
+    { href: "https://whereintheworldisdiane.com/", title: "Where In The World Is Diane", file: "where-in-the-world-is-diane" },
+    { href: "https://cleancalmpiano.com/", title: "Clean Calm Piano", file: "clean-calm-piano" },
+    { href: "https://tantalizingproof.com/", title: "Tantalizing Proof", file: "tantalizing-proof" },
+    { href: "https://pianoincolors.com/", title: "Piano In Colors", file: "piano-in-colors" },
+    { href: "https://melodicsubtlety.com/", title: "Melodic Subtlety \u2013 Solo Piano", file: "melodic-subtlety" }
+  ];
+
+  function currentHost() {
+    var host = (location.hostname || "").replace(/^www\./, "").toLowerCase();
+    if (!host || host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") {
+      return "tantalizingproof.com";
+    }
+    return host;
+  }
+
+  function albumHost(href) {
+    try {
+      return new URL(href).hostname.replace(/^www\./, "").toLowerCase();
+    } catch (err) {
+      return "";
+    }
+  }
+
+  function coverImg(file) {
+    var cover = document.createElement("img");
+    cover.src = "/assets/albums/" + file + ".jpg";
+    cover.srcset = "/assets/albums/" + file + ".jpg 1x, /assets/albums/" + file + "@2x.jpg 2x";
+    cover.width = 48;
+    cover.height = 48;
+    cover.alt = "";
+    cover.decoding = "async";
+    return cover;
+  }
+
+  function albumsSection() {
+    var here = currentHost();
+    var albumList = document.createElement("ul");
+    albumList.className = "album-list";
+    albumList.setAttribute("role", "list");
+
+    albums.forEach(function (album) {
+      var item = document.createElement("li");
+      var title = document.createElement("span");
+      title.className = "album-title";
+      title.textContent = album.title;
+
+      if (albumHost(album.href) === here) {
+        item.setAttribute("aria-current", "page");
+        var row = document.createElement("div");
+        row.className = "album-current";
+        var copy = document.createElement("span");
+        copy.className = "album-copy";
+        var note = document.createElement("span");
+        note.className = "album-here";
+        note.textContent = "You\u2019re here";
+        copy.appendChild(title);
+        copy.appendChild(note);
+        row.appendChild(coverImg(album.file));
+        row.appendChild(copy);
+        item.appendChild(row);
+      } else {
+        var link = document.createElement("a");
+        link.href = album.href;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.appendChild(coverImg(album.file));
+        link.appendChild(title);
+        item.appendChild(link);
+      }
+      albumList.appendChild(item);
+    });
+
+    var label = document.createElement("p");
+    label.id = "menu-albums-label";
+    label.className = "menu-albums-label";
+    label.textContent = "Albums";
+
+    var section = document.createElement("section");
+    section.className = "menu-albums";
+    section.setAttribute("aria-labelledby", "menu-albums-label");
+    section.appendChild(label);
+    section.appendChild(albumList);
+    return section;
+  }
+
   var links = pages.filter(function (page) {
     if (isExcluded(page.href)) return false;
     return !samePage(page.href);
@@ -90,6 +180,7 @@
   menu.setAttribute("aria-label", "Pages");
   menu.hidden = true;
   menu.appendChild(list);
+  menu.appendChild(albumsSection());
 
   document.body.appendChild(button);
   document.body.appendChild(menu);

@@ -75,9 +75,9 @@
   z-index: 39;
   top: calc(max(var(--nav-inset), env(safe-area-inset-top, 0px)) + var(--nav-size) + 12px);
   right: max(var(--nav-inset), env(safe-area-inset-right, 0px));
-  width: max-content;
-  min-width: 10.5rem;
-  max-width: min(16rem, calc(100vw - 28px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+  width: min(16.75rem, calc(100vw - 28px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+  min-width: 0;
+  max-width: min(16.75rem, calc(100vw - 28px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
   max-height: calc(100vh - var(--nav-size) - var(--nav-inset) - 36px);
   max-height: calc(100dvh - var(--nav-size) - var(--nav-inset) - 36px - env(safe-area-inset-bottom, 0px));
   margin: 0;
@@ -135,6 +135,95 @@
   color: var(--nav-glow);
 }
 
+.menu-albums {
+  border-top: 1px solid var(--nav-line);
+  padding-bottom: 0.35rem;
+}
+
+.menu-albums-label {
+  margin: 0.75rem 0.9rem 0.2rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7a5e4e;
+}
+
+.site-menu .album-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.1rem 0 0.3rem;
+}
+
+.site-menu .album-list a,
+.album-current {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  padding: 0.38rem 0.9rem;
+  color: var(--nav-ink);
+  font-size: 1rem;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.site-menu .album-list img,
+.album-current img {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 3px;
+  background: #ead9c8;
+  box-shadow: inset 0 0 0 1px rgba(44, 30, 22, 0.12);
+}
+
+.album-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.album-title {
+  min-width: 0;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.site-menu .album-list a:hover {
+  color: var(--nav-glow);
+  background: rgba(139, 74, 42, 0.06);
+}
+
+.album-current {
+  color: #7a5e4e;
+  cursor: default;
+}
+
+.album-current .album-title,
+.album-here {
+  color: #7a5e4e;
+}
+
+.album-current img {
+  opacity: 0.72;
+}
+
+.album-here {
+  display: block;
+  margin-top: 0.12rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
 @media (max-width: 760px) {
   :root {
     --nav-size: 64px;
@@ -143,6 +232,35 @@
 
   body > main {
     padding-top: calc(var(--nav-size) + var(--nav-inset) + 18px);
+  }
+
+  .site-menu .album-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem 0.45rem;
+    padding: 0.35rem 0.75rem 0.7rem;
+  }
+
+  .site-menu .album-list a,
+  .album-current {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  .site-menu .album-list a:hover {
+    background: transparent;
+  }
+
+  .album-copy {
+    align-items: center;
+  }
+
+  .album-title {
+    font-size: 1.05rem;
   }
 }
 
