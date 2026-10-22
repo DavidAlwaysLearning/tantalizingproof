@@ -24,110 +24,144 @@
 <meta name="twitter:image:alt" content="Cover of Tantalizing Proof by David Rivera: a piano drawn in red light">
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "MusicAlbum",
- "name": "Tantalizing Proof",
- "url": "https://tantalizingproof.com/",
- "image": "https://tantalizingproof.com/assets/tantalizing-proof-cover.jpg",
- "byArtist": {
-  "@type": "Person",
-  "name": "David Rivera",
-  "sameAs": [
-   "https://open.spotify.com/artist/5qoC4NXvjfV3cylbXALzV3",
-   "https://music.apple.com/us/artist/david-rivera/1325691064",
-   "https://www.facebook.com/pianoincolors",
-   "https://www.instagram.com/pianodavid1492/"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://lackadaisicalperfection.com/about/#david-rivera",
+      "name": "David Rivera",
+      "jobTitle": "American composer",
+      "description": "David Rivera is an American composer of piano-led instrumental music. He plays and samples every instrument on his recordings himself. He is a member of ASCAP.",
+      "url": "https://lackadaisicalperfection.com/about/",
+      "nationality": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "memberOf": {
+        "@type": "Organization",
+        "name": "ASCAP",
+        "url": "https://www.ascap.com/"
+      },
+      "affiliation": {
+        "@id": "https://lackadaisicalperfection.com/about/#subtlety-media"
+      },
+      "sameAs": [
+        "https://open.spotify.com/artist/5qoC4NXvjfV3cylbXALzV3",
+        "https://music.apple.com/us/artist/david-rivera/1325691064",
+        "https://x.com/melodicsubtlety",
+        "https://www.facebook.com/pianoincolors",
+        "https://www.instagram.com/pianodavid1492/",
+        "https://www.pandora.com/artist/david-rivera/ARXtg47gfjlv3nJ",
+        "https://www.youtube.com/channel/UCDqZ1e9Ur4PHynEylN_mJDg"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://lackadaisicalperfection.com/about/#subtlety-media",
+      "name": "Subtlety Media, LLC",
+      "url": "https://lackadaisicalperfection.com/about/"
+    },
+    {
+      "@type": "MusicAlbum",
+      "name": "Tantalizing Proof",
+      "url": "https://tantalizingproof.com/",
+      "image": "https://tantalizingproof.com/assets/tantalizing-proof-cover.jpg",
+      "byArtist": {
+        "@id": "https://lackadaisicalperfection.com/about/#david-rivera"
+      },
+      "datePublished": "2009",
+      "numTracks": 12,
+      "genre": [
+        "Solo piano",
+        "Neoclassical"
+      ],
+      "sameAs": [
+        "https://music.apple.com/us/album/tantalizing-proof/312989854",
+        "https://open.spotify.com/album/173uC2kSkK7W2FkgS00CmB"
+      ],
+      "description": "Twelve paired titles: whimsical introspection, a magnanimous sigh, curious aloofness. Proof that the quiet can still insist.",
+      "recordLabel": {
+        "@id": "https://lackadaisicalperfection.com/about/#subtlety-media"
+      },
+      "track": [
+        {
+          "@type": "MusicRecording",
+          "position": 1,
+          "name": "Transient Preservation",
+          "duration": "PT3M46S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 2,
+          "name": "Rapturous Pursuit",
+          "duration": "PT4M0S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 3,
+          "name": "Whimsical Introspection",
+          "duration": "PT3M56S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 4,
+          "name": "Gregarious Sanctuary",
+          "duration": "PT3M8S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 5,
+          "name": "Beloved Insistence",
+          "duration": "PT4M0S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 6,
+          "name": "Precocious Spontaneity",
+          "duration": "PT3M56S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 7,
+          "name": "Phantom Sensibility",
+          "duration": "PT3M41S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 8,
+          "name": "Magnanimous Sigh",
+          "duration": "PT3M9S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 9,
+          "name": "Lavish Persistence",
+          "duration": "PT3M14S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 10,
+          "name": "Inevitable Despondency",
+          "duration": "PT7M9S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 11,
+          "name": "Finessed Spectacle",
+          "duration": "PT2M32S"
+        },
+        {
+          "@type": "MusicRecording",
+          "position": 12,
+          "name": "Curious Aloofness",
+          "duration": "PT4M15S"
+        }
+      ],
+      "publisher": {
+        "@id": "https://lackadaisicalperfection.com/about/#subtlety-media"
+      }
+    }
   ]
- },
- "datePublished": "2009",
- "numTracks": 12,
- "genre": [
-  "Solo piano",
-  "Neoclassical"
- ],
- "sameAs": [
-  "https://music.apple.com/us/album/tantalizing-proof/312989854",
-  "https://open.spotify.com/album/173uC2kSkK7W2FkgS00CmB"
- ],
- "description": "Twelve paired titles: whimsical introspection, a magnanimous sigh, curious aloofness. Proof that the quiet can still insist.",
- "recordLabel": {
-  "@type": "Organization",
-  "name": "Subtlety Media, LLC"
- },
- "track": [
-  {
-   "@type": "MusicRecording",
-   "position": 1,
-   "name": "Transient Preservation",
-   "duration": "PT3M46S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 2,
-   "name": "Rapturous Pursuit",
-   "duration": "PT4M0S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 3,
-   "name": "Whimsical Introspection",
-   "duration": "PT3M56S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 4,
-   "name": "Gregarious Sanctuary",
-   "duration": "PT3M8S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 5,
-   "name": "Beloved Insistence",
-   "duration": "PT4M0S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 6,
-   "name": "Precocious Spontaneity",
-   "duration": "PT3M56S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 7,
-   "name": "Phantom Sensibility",
-   "duration": "PT3M41S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 8,
-   "name": "Magnanimous Sigh",
-   "duration": "PT3M9S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 9,
-   "name": "Lavish Persistence",
-   "duration": "PT3M14S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 10,
-   "name": "Inevitable Despondency",
-   "duration": "PT7M9S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 11,
-   "name": "Finessed Spectacle",
-   "duration": "PT2M32S"
-  },
-  {
-   "@type": "MusicRecording",
-   "position": 12,
-   "name": "Curious Aloofness",
-   "duration": "PT4M15S"
-  }
- ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
