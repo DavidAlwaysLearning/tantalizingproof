@@ -54,7 +54,8 @@
 (function () {
   var pages = [
     { href: "/", label: "Album" },
-    { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true }
+    { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true },
+    { href: "https://lackadaisicalperfection.com/about/", label: "About", blank: true }
   ];
 
   function siteBase() {
@@ -125,13 +126,13 @@
     }
   }
 
-  function coverImg(file) {
+  function coverImg(file, title) {
     var cover = document.createElement("img");
     cover.src = "/assets/albums/" + file + ".jpg";
     cover.srcset = "/assets/albums/" + file + ".jpg 1x, /assets/albums/" + file + "@2x.jpg 2x";
     cover.width = 48;
     cover.height = 48;
-    cover.alt = "";
+    cover.alt = title ? title.split(" \u2013 ")[0].split(" – ")[0] + " album cover" : "";
     cover.decoding = "async";
     return cover;
   }
@@ -159,7 +160,7 @@
         note.textContent = "You\u2019re here";
         copy.appendChild(title);
         copy.appendChild(note);
-        row.appendChild(coverImg(album.file));
+        row.appendChild(coverImg(album.file, album.title));
         row.appendChild(copy);
         item.appendChild(row);
       } else {
@@ -167,7 +168,7 @@
         link.href = album.href;
         link.target = "_blank";
         link.rel = "noopener";
-        link.appendChild(coverImg(album.file));
+        link.appendChild(coverImg(album.file, album.title));
         link.appendChild(title);
         item.appendChild(link);
       }
